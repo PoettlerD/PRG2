@@ -10,7 +10,7 @@ public class Demo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		File file = new File("C:\\Temp");
+		File file = new File("C:\\users\\poettlerd284\\downloads");
 		file.isDirectory();
 		
 		DisplayContent(file, " ");
@@ -26,12 +26,12 @@ public class Demo {
 			
 			if (f.isDirectory())
 			{
-				System.out.println(prefix+"+" + f);
+				System.out.println(prefix+"+" + f+"  " + f.length());
 				DisplayContent(f, prefix+"  ");
 			}
 			else
 			{
-			System.out.println(prefix + "-" + f);
+			System.out.println(prefix + "-" + f+"  " + f.length());
 			}
 		}
 			
@@ -47,7 +47,7 @@ public class Demo {
 			
 			for (File file : f.listFiles())
 					{
-				size+= getSize(file);
+				size = size +getSize(file);
 					}
 		
 		return size;

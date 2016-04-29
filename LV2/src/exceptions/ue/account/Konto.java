@@ -31,7 +31,7 @@ public void debit(double amount) throws NotEnoughMoneyException
 try {
 	if ((balance+overdraftFrame) < amount)
 	{
-		throw new NotEnoughMoneyException();
+		throw new NotEnoughMoneyException(owner);
 	}
 } catch (NotEnoughMoneyException e) {
 	// TODO Auto-generated catch block
