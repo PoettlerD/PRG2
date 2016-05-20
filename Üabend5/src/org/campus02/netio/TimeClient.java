@@ -13,20 +13,21 @@ public class TimeClient {
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		// TODO Auto-generated method stub
-
-		Socket sock = new Socket("localhost",1111);
-		BufferedReader br = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-		
-		String Data = null;
-
-		while ((Data = br.readLine())!= null)
+		try (Socket sock = new Socket("localhost", 1111);
+			BufferedReader br = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+				) 
 		{
-			
-			System.out.println(Data);
-			sock.close();
+			String Data;
+			while ((Data = br.readLine()) != null) {
+				System.out.print(Data);
+				break;
+			}
+
 		}
-		
-		
+
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

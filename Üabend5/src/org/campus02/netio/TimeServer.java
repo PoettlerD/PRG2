@@ -12,18 +12,20 @@ public class TimeServer {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ServerSocket srvSock = new ServerSocket(1111);
-		while (true)
-		{
-		Socket sock = srvSock.accept();
-		
+		int counter = 0;
+		while (true && counter < 10) {
+			counter++;
+			Socket sock = srvSock.accept();
+			
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
 			LocalDateTime datetime = LocalDateTime.now();
 			bw.write(datetime.toString());
+			bw.newLine();
 			bw.flush();
+			System.out.println("Zeit "+counter+" mal gesendet");
+			
 			
 		}
-		}
-		
-	
+	}
 
 }
